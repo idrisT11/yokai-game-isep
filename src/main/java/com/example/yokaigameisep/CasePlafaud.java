@@ -1,4 +1,4 @@
 package com.example.yokaigameisep;
 
-public class Case {
+public class CasePlataud {
 }

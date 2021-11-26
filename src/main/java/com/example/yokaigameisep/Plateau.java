@@ -4,15 +4,15 @@ import java.util.ArrayList;
 public class Plateau {
 
 
-    private Case[][] mainGrille[16][16];
+    private Case[][] mainGrille;
 
 
     public Case[][] getMainGrille() {
-        return mainGrille[][];
+        return mainGrille;
     }
 
-    public void setMainGrille(Case[][] mainGrille[][]) {
-        this.mainGrille[][] = mainGrille[][];
+    public void setMainGrille(Case[][] mainGrille) {
+        this.mainGrille = mainGrille;
     }
 
     public isPlayerMoveGut(){

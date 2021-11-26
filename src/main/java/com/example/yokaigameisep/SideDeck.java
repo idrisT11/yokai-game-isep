@@ -9,4 +9,14 @@ public class SideDeck {
         ArrayList<IndiceCard> indicePrepared;
 
     }
+
+
+    // Methods ..........................................
+    public pickCardsPioche(){
+
+    }
+    public CardsPrepared(){
+
+    }
+
 }

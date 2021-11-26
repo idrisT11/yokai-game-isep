@@ -10,6 +10,8 @@ public class Plateau {
     private boolean etatEndGame;
     private boolean canReturnCard;
 
+
+
     // Getter and Setter    ....................................................................
     public CasePlataud[][] getMainGrille() {
         return mainGrille;

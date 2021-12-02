@@ -1,5 +1,6 @@
 package com.example.yokaigameisep;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
@@ -14,5 +15,13 @@ public class SideDeck {
 
     }
 
+
+    // Methods ..........................................
+    public pickCardsPioche(){
+
+    }
+    public CardsPrepared(){
+
+    }
 
 }

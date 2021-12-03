@@ -33,23 +33,23 @@ public class Board {
                 switch(randnumb0) {
 
                     case COLOR_RED:
-                            mainGrid[i][j].content = COLOR_RED; //set case content to Red
+                            mainGrid[i][j].color = COLOR_RED; //set case content to Red
 
                             Red_Left -= 1;
                         break;
 
                     case Constant.COLOR_GREEN:
-                        mainGrid[i][j].content = COLOR_GREEN; //set case value
+                        mainGrid[i][j].color = COLOR_GREEN; //set case value
                         Green_Left -= 1;
                         break;
 
                     case Constant.COLOR_PURPLE:
-                        mainGrid[i][j].content = COLOR_RED; //set case value
+                        mainGrid[i][j].color = COLOR_RED; //set case value
                         Purple_Left -= 1;
                         break;
 
                     case Constant.COLOR_BLUE:
-                        mainGrid[i][j].content = COLOR_BLUE; //set case value
+                        mainGrid[i][j].color = COLOR_BLUE; //set case value
                         Blue_Left -= 1;
                         break;
                     default:

@@ -23,7 +23,10 @@ public class PlateauComponent extends Group {
 
 
 
-    public PlateauComponent(){
+    public PlateauComponent(Board board){
+
+        this.board = board;
+
         ObservableList list = this.getChildren();
 
         initPlateau();
@@ -47,7 +50,11 @@ public class PlateauComponent extends Group {
                 b_list[i][j].setMinWidth(60);
                 b_list[i][j].setMinHeight(60);
 
-                b_list[i][j].setStyle("-fx-background-color: white");
+                if (board.getCase(i, j) != null)
+                    b_list[i][j].setStyle("-fx-background-color: white");
+                else{
+                    if (board.getCase(i, j).getColor != null)
+                }
 
                 b_list[i][j].setOnAction(new EventHandler<ActionEvent>() {
                     @Override

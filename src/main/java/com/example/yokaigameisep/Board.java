@@ -2,12 +2,24 @@ package com.example.yokaigameisep;
 
 public class Board {
 
-
+    // Attributes used .......................................................
     private CaseBoard[][] mainGrid;
     private boolean canMoveCard;
     private boolean canMoveTip;
     private boolean stateEndGame;
     private boolean canTurnCard;
+    private int nbGreenCards;
+    private int nbRedCards;
+    private int nbBlueCards;
+    private int nbPurpleCards;
+
+    // Constructor ....................................................................
+    public Initialize_Board() {
+
+
+        return mainGrid;
+    }
+
 
 
 

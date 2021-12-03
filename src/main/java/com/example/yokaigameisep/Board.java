@@ -1,5 +1,7 @@
 package com.example.yokaigameisep;
 
+import java.util.HashMap;
+
 public class Board {
 
     // Attributes used .......................................................
@@ -8,15 +10,17 @@ public class Board {
     private boolean canMoveTip;
     private boolean stateEndGame;
     private boolean canTurnCard;
-    private int nbGreenCards;
-    private int nbRedCards;
-    private int nbBlueCards;
-    private int nbPurpleCards;
+    private HashMap colors_Left = new HashMap();
+
 
     // Constructor ....................................................................
     public Initialize_Board() {
         int min_init_layout = (Constant.LENGTH_MAIN_GRID/2)-1;
         int max_init_layout = (Constant.LENGTH_MAIN_GRID/2)+2;
+        colors_Left.put("Rouge", 4);
+        colors_Left.put("Green", 4);
+        colors_Left.put("Blue", 4);
+        colors_Left.put("Purple", 4);
 
         for(int i = min_init_layout; i<max_init_layout; i++){
             for(int j = min_init_layout; j<max_init_layout; j++){

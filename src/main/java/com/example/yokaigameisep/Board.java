@@ -15,7 +15,20 @@ public class Board {
 
     // Constructor ....................................................................
     public Initialize_Board() {
-        int Center_Value = Constant.LENGTH_MAIN_GRID;
+        int min_init_layout = (Constant.LENGTH_MAIN_GRID/2)-1;
+        int max_init_layout = (Constant.LENGTH_MAIN_GRID/2)+2;
+
+        for(int i = min_init_layout; i<max_init_layout; i++){
+            for(int j = min_init_layout; j<max_init_layout; j++){
+
+
+
+
+
+
+
+            }
+        }
 
         return mainGrid;
     }

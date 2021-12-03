@@ -768,7 +768,7 @@
 											"top": 741,
 											"width": 141.2734375,
 											"height": 13,
-											"text": "+cardOnTop: IndiceCard",
+											"text": "+cardOnTop: TipCard",
 											"horizontalAlignment": 0
 										}
 									],
@@ -2986,7 +2986,9 @@
 								"$ref": "AAAAAAF9XI433A8ZUtk="
 							},
 							"name": "cardOnTop",
-							"type": "IndiceCard"
+							"type": {
+								"$ref": "AAAAAAF9XOzoBhN+Neg="
+							}
 						}
 					]
 				},

@@ -14,12 +14,19 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("hello-view.fxml"));
-        //Group root = fxmlLoader.load();
+        //=========================================
 
 
-        Group g = new PlateauComponent();
-        //root.getChildren().add(g);
 
+        Board board = new Board();
+
+
+
+
+
+        Group g = new PlateauComponent(board);
+
+        //=======================================
         Scene scene = new Scene(g, 1000, 800);
         stage.setTitle("Hello!");
         stage.setScene(scene);

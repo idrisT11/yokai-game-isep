@@ -43,7 +43,13 @@ public class TipCard {
     private int colorValue1, colorValue2, colorValue3;
 
 
-    public void setColorValue1(int colorValue1) {
-        this.colorValue1 = colorValue1;
+    @Override
+    public String toString() {
+        return nbColors +
+                ":" + prepared +
+                ":" + colorValue1 +
+                ":" + colorValue2 +
+                ":" + colorValue3;
+
     }
 }

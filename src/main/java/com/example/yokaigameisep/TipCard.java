@@ -2,6 +2,11 @@ package com.example.yokaigameisep;
 
 public class TipCard {
     private int nbColors;
+
+    public void setColorValue1(int colorValue1) {
+        this.colorValue1 = colorValue1;
+    }
+
     private boolean prepared;
 
     public int getNbColors() {

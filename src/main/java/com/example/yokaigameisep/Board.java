@@ -15,7 +15,7 @@ public class Board {
 
     // Constructor ....................................................................
     public Initialize_Board() {
-
+        int Center_Value = Constant.LENGTH_MAIN_GRID;
 
         return mainGrid;
     }

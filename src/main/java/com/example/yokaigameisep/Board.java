@@ -12,12 +12,12 @@ public class Board {
 
 
     // Getter and Setter    ....................................................................
-    public CaseBoard[][] getMainGriD() {
-        return mainGrille;
+    public CaseBoard[][] getMainGrid() {
+        return mainGrid;
     }
 
-    public void setMainGrille(CaseBoard[][] mainGrille) {
-        this.mainGrille = mainGrille;
+    public void setMainGrid(CaseBoard[][] mainGrid) {
+        this.mainGrid = mainGrid;
     }
 
     // Methods    .............................................................................
@@ -26,16 +26,16 @@ public class Board {
         return canMoveCard;
     }
 
-    public isIndiceMoveGood(){
-        return canMoveIndice;
+    public isTipMoveGood(){
+        return canMoveTip;
     }
 
     public verifyEndGame(){
-        return etatEndGame;
+        return stateEndGame;
     }
 
     public isCardTurnable(){
-        return canReturnCard;
+        return canTurnCard;
 
     }
 

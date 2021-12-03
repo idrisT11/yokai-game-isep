@@ -22,8 +22,6 @@ public class Main extends Application {
 
 
 
-
-
         Group g = new PlateauComponent(board);
 
         //=======================================

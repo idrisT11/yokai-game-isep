@@ -12,7 +12,7 @@ public class SideDeck {
     public SideDeck(){
 
         File drawFile = new File();
-        ArrayList<IndiceCard> tipPrepared;
+        ArrayList<TipCard> tipPrepared;
 
     }
 

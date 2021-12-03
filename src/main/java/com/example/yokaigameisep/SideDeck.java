@@ -10,17 +10,18 @@ public class SideDeck {
     private Queue<IndiceCard> indicePioche;
 
     public SideDeck(){
-        indicePrepared = new ArrayList<IndiceCard>();
-        indicePioche = new LinkedList<>();
+
+        File drawFile = new File();
+        ArrayList<IndiceCard> tipPrepared;
 
     }
 
 
     // Methods ..........................................
-    public pickCardsPioche(){
+    public pickCardsDraw(){
 
     }
-    public CardsPrepared(){
+    public pickCardPrepared(){
 
     }
 

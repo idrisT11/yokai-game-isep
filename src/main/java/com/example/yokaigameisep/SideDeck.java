@@ -5,17 +5,17 @@ import java.util.ArrayList;
 
 public class SideDeck {
     public SideDeck(){
-        File pioche = new File();
-        ArrayList<IndiceCard> indicePrepared;
+        File drawFile = new File();
+        ArrayList<IndiceCard> tipPrepared;
 
     }
 
 
     // Methods ..........................................
-    public pickCardsPioche(){
+    public pickCardsDraw(){
 
     }
-    public CardsPrepared(){
+    public pickCardPrepared(){
 
     }
 

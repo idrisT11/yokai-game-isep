@@ -1,6 +1,6 @@
 package com.example.yokaigameisep;
 
-public class CasePlataud {
+public class CaseBoard {
     private int content;
     private IndiceCard cardOnTop;
 

@@ -1,33 +1,32 @@
 package com.example.yokaigameisep;
-import java.util.ArrayList;
 
-public class Plateau {
+public class Board {
 
 
-    private CasePlataud[][] mainGrille;
+    private CaseBoard[][] mainGrid;
     private boolean canMoveCard;
-    private boolean canMoveIndice;
-    private boolean etatEndGame;
-    private boolean canReturnCard;
+    private boolean canMoveTip;
+    private boolean stateEndGame;
+    private boolean canTurnCard;
 
 
 
     // Getter and Setter    ....................................................................
-    public CasePlataud[][] getMainGrille() {
+    public CaseBoard[][] getMainGriD() {
         return mainGrille;
     }
 
-    public void setMainGrille(CasePlataud[][] mainGrille) {
+    public void setMainGrille(CaseBoard[][] mainGrille) {
         this.mainGrille = mainGrille;
     }
 
     // Methods    .............................................................................
-    public isPlayerMoveGut(){
+    public isPlayerMoveGood(){
 
         return canMoveCard;
     }
 
-    public isIndiceMoveGut(){
+    public isIndiceMoveGood(){
         return canMoveIndice;
     }
 
@@ -40,6 +39,7 @@ public class Plateau {
 
     }
 
+    public makeMove(){}
 
 
 }

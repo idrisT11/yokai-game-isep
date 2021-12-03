@@ -18,6 +18,7 @@ public class PlateauComponent extends Group {
     private GridPane g;
     Button[][] b_list;
 
+    //===================================
     private Board board;
 
 
@@ -44,6 +45,8 @@ public class PlateauComponent extends Group {
 
                 b_list[i][j] = new Button("zzz");
 
+                b_list[i][j].setUserData(board.getCase(i, j).toString());
+
                 b_list[i][j].setPrefWidth(60);
                 b_list[i][j].setPrefHeight(60);
 
@@ -53,14 +56,28 @@ public class PlateauComponent extends Group {
                 if (board.getCase(i, j) != null)
                     b_list[i][j].setStyle("-fx-background-color: white");
                 else{
-                    if (board.getCase(i, j).getColor != null)
+                    if (board.getCase(i, j).getColor() == Constant.COLOR_BLUE){
+                        b_list[i][j].setStyle("-fx-background-color: blue");
+                    }
+                    else if (board.getCase(i, j).getColor() == Constant.COLOR_RED){
+                        b_list[i][j].setStyle("-fx-background-color: red");
+                    }
+                    else if (board.getCase(i, j).getColor() == Constant.COLOR_PURPLE){
+                        b_list[i][j].setStyle("-fx-background-color: purple");
+                    }
+                    else if (board.getCase(i, j).getColor() == Constant.COLOR_GREEN){
+                        b_list[i][j].setStyle("-fx-background-color: green");
+                    }
                 }
 
                 b_list[i][j].setOnAction(new EventHandler<ActionEvent>() {
                     @Override
                     public void handle(ActionEvent e) {
+
                         Node n = (Node) e.getSource();
                         n.setStyle("-fx-background-color: black");
+
+
                     }
                 });
 
@@ -69,4 +86,6 @@ public class PlateauComponent extends Group {
         }
 
     }
+
+
 }

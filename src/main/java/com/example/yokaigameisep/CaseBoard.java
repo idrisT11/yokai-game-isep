@@ -26,4 +26,9 @@ public class CaseBoard {
     public void setCardOnTop(TipCard cardOnTop) {
         this.cardOnTop = cardOnTop;
     }
+
+    @Override
+    public String toString() {
+        return color + "#" +  cardOnTop.toString();
+    }
 }

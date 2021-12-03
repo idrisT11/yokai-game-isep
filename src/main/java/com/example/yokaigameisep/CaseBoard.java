@@ -1,7 +1,7 @@
 package com.example.yokaigameisep;
 
 public class CaseBoard {
-    private int content;
+    public int content;
     private TipCard cardOnTop;
 
 

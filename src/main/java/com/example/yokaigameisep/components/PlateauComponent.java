@@ -1,6 +1,8 @@
 package com.example.yokaigameisep.components;
 
 
+import com.example.yokaigameisep.Board;
+import com.example.yokaigameisep.Constant;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -15,7 +17,9 @@ import javafx.scene.layout.GridPane;
 public class PlateauComponent extends Group {
     private GridPane g;
     Button[][] b_list;
-    public final int LENGTH = 12;
+
+    private Board board;
+
 
 
 
@@ -30,10 +34,10 @@ public class PlateauComponent extends Group {
 
     public void initPlateau(){
         g = new GridPane();
-        b_list = new Button[LENGTH][LENGTH];
+        b_list = new Button[Constant.LENGTH_MAIN_GRID][Constant.LENGTH_MAIN_GRID];
 
-        for (int i = 0; i < LENGTH; i++) {
-            for (int j = 0; j < LENGTH; j++) {
+        for (int i = 0; i < Constant.LENGTH_MAIN_GRID; i++) {
+            for (int j = 0; j < Constant.LENGTH_MAIN_GRID; j++) {
 
                 b_list[i][j] = new Button("zzz");
 

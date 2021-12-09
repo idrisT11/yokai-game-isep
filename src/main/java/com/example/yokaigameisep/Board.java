@@ -106,6 +106,7 @@ public class Board {
     }
 
     public CaseBoard getCase(int x, int y){
+
         return mainGrid[x][y];
     }
 

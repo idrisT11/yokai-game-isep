@@ -10,19 +10,22 @@ import javafx.application.Application;
 
         import java.io.IOException;
 
-public class Main extends Application {
+public class MainYokai extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("hello-view.fxml"));
+        //FXMLLoader fxmlLoader = new FXMLLoader(MainYokai.class.getResource("hello-view.fxml"));
         //=========================================
 
 
 
         Board board = new Board();
+        board.Initialize_Board();
 
-
-
+        board.printBoard();
         Group g = new PlateauComponent(board);
+
+
+
 
         //=======================================
         Scene scene = new Scene(g, 1000, 800);

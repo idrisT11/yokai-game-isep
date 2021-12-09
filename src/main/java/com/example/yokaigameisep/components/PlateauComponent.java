@@ -43,9 +43,9 @@ public class PlateauComponent extends Group {
         for (int i = 0; i < Constant.LENGTH_MAIN_GRID; i++) {
             for (int j = 0; j < Constant.LENGTH_MAIN_GRID; j++) {
 
-                b_list[i][j] = new Button("zzz");
+                b_list[i][j] = new Button("");
 
-                b_list[i][j].setUserData(board.getCase(i, j).toString());
+                b_list[i][j].setUserData(board.getCase(5, 3).toString());
 
                 b_list[i][j].setPrefWidth(60);
                 b_list[i][j].setPrefHeight(60);
@@ -53,7 +53,7 @@ public class PlateauComponent extends Group {
                 b_list[i][j].setMinWidth(60);
                 b_list[i][j].setMinHeight(60);
 
-                if (board.getCase(i, j) != null)
+                if (board.getCase(i, j) == null)
                     b_list[i][j].setStyle("-fx-background-color: white");
                 else{
                     if (board.getCase(i, j).getColor() == Constant.COLOR_BLUE){

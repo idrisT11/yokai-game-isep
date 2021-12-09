@@ -31,6 +31,9 @@ public class CaseBoard {
 
     @Override
     public String toString() {
-        return color + "#" +  cardOnTop.toString();
+        if (cardOnTop != null)
+            return color + "#" +  cardOnTop.toString();
+        else
+            return color + "#" + "null";
     }
 }

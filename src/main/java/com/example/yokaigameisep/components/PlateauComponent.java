@@ -38,6 +38,9 @@ public class PlateauComponent extends Group {
 
     public void initPlateau(){
         g = new GridPane();
+        g.setVgap(10);
+        g.setHgap(10);
+
         b_list = new Button[Constant.LENGTH_MAIN_GRID][Constant.LENGTH_MAIN_GRID];
 
         for (int i = 0; i < Constant.LENGTH_MAIN_GRID; i++) {

@@ -28,7 +28,7 @@ public class MainYokai extends Application {
 
 
         //=======================================
-        Scene scene = new Scene(g, 1000, 800);
+        Scene scene = new Scene(g, 1000, 900);
         stage.setTitle("Hello!");
         stage.setScene(scene);
         stage.show();

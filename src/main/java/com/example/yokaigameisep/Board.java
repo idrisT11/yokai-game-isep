@@ -1,9 +1,5 @@
 package com.example.yokaigameisep;
 
-import java.util.HashMap;
-
-import static com.example.yokaigameisep.Constant.*;
-
 public class Board {
 
     // Attributes used .......................................................
@@ -19,7 +15,7 @@ public class Board {
         mainGrid = new CaseBoard[Constant.LENGTH_MAIN_GRID][Constant.LENGTH_MAIN_GRID];
         for(int i=0; i<Constant.LENGTH_MAIN_GRID;i++){
             for(int j = 0; j<Constant.LENGTH_MAIN_GRID; j++){
-                mainGrid[i][j] = new CaseBoard(0,null);
+                mainGrid[i][j] = new CaseBoard(Constant.VOID_CASE,null);
                 mainGrid[i][j].setCardOnTop(null);
 
             }
@@ -137,4 +133,44 @@ public class Board {
         }
     }
 
+
+    public boolean IsIndiceMoveGood (Board b, int x, int y) {
+
+
+        CaseBoard caseConcernée = b.getCase(x, y);
+        int colorCaseConcernee = caseConcernée.getColor();
+        if (colorCaseConcernee != 0) {
+            return false;
+        }
+        CaseBoard caseDroite = b.getCase(x+1,y);
+        if (caseDroite != null){
+            int colorCaseDroite = caseConcernée.getColor();
+            if (colorCaseDroite != 0) {
+                return true;
+            }
+        }
+        CaseBoard caseGauche = b.getCase(x-1,y);
+        if (caseGauche != null){
+            int colorCaseGauche = caseGauche.getColor();
+            if (colorCaseGauche != 0) {
+                return true;
+            }
+        }
+        boolean stateCaseHaut;
+        CaseBoard caseHaut = b.getCase(x,y+1);
+        if (caseHaut != null){
+            int colorCaseHaut = caseHaut.getColor();
+            if (colorCaseHaut != 0) {
+                return true;
+            }
+        }
+        CaseBoard caseBas = b.getCase(x,y-1);
+        if (caseBas != null){
+            int colorCaseBas = caseBas.getColor();
+            if (colorCaseBas != 0) {
+                return true;
+            }
+        }
+        return true;
+    }
 }

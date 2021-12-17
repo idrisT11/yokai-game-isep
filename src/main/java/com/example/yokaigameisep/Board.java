@@ -110,7 +110,11 @@ public class Board {
         return canMoveCard;
     }
     
-    public boolean isTipMoveGood(){
+    public boolean isTipMoveGood(int x, int y){
+        // move is good if there's a card on a case but not a card and a tip // other potential name canPlaceTip
+        if(mainGrid[x][y].getColor() != Constant.VOID_CASE && mainGrid[x][y].getCardOnTop()== null){
+            canMoveTip = true;
+        }
         return canMoveTip;
     }
 
@@ -118,7 +122,12 @@ public class Board {
         return stateEndGame;
     }
 
-    public boolean isCardTurnable(){
+    public boolean isCardTurnable(int x, int y){
+        if(mainGrid[x][y].getColor()==Constant.VOID_CASE){
+            canTurnCard = true;
+        } else {
+            canTurnCard = false;
+        }
         return canTurnCard;
     }
 

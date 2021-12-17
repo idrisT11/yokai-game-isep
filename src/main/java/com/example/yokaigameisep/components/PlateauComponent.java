@@ -79,11 +79,14 @@ public class PlateauComponent extends Group {
                     }
                 }
 
+                int finalI = i;
+                int finalJ = j;
                 b_list[i][j].setOnAction(new EventHandler<ActionEvent>() {
                     @Override
                     public void handle(ActionEvent e) {
 
                         Node n = (Node) e.getSource();
+                        System.out.println(board.isPlayerMoveGood(finalI, finalJ));
                         n.setStyle("fx-background-image: url(\"cartes_individuelles/carte_bleue.pdf\")");
                         for (int k = 0; k < Constant.LENGTH_MAIN_GRID; k++) {
                             for (int l = 0; l < Constant.LENGTH_MAIN_GRID; l++) {

@@ -95,8 +95,18 @@ public class Board {
     }
 
     // Methods    .............................................................................
-    public boolean isPlayerMoveGood(){
-
+    public boolean isPlayerMoveGood(int x, int y){
+        getCopymainGrid(mainGrid);
+        if(mainGrid[x][y].getCardOnTop()== null){
+            copymainGrid[x][y]='0';
+            if(isBlockOnepiece(copymainGrid)){
+                canMoveCard = true;
+            } else {
+                canMoveCard = false;
+            }
+        } else {
+            canMoveCard = false;
+        }
         return canMoveCard;
     }
 
@@ -117,8 +127,7 @@ public class Board {
     }
 
 
-    public boolean isBlockOnepiece(CaseBoard[][] mainGrid){
-        getCopymainGrid(mainGrid);
+    public boolean isBlockOnepiece(char[][] copymainGrid){
         int[] memory={0,0};
         boolean shouldBreak = false;
         int i,j;

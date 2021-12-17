@@ -102,7 +102,8 @@ public class Board {
     }
 
     public CaseBoard getCase(int x, int y){
-
+        if(x < 0 || y < 0 || x >= Constant.LENGTH_MAIN_GRID || y >= Constant.LENGTH_MAIN_GRID)
+            return null;
         return mainGrid[x][y];
     }
 
@@ -144,11 +145,12 @@ public class Board {
         }
         CaseBoard caseDroite = b.getCase(x+1,y);
         if (caseDroite != null){
-            int colorCaseDroite = caseConcernée.getColor();
+            int colorCaseDroite = caseDroite.getColor();
             if (colorCaseDroite != 0) {
                 return true;
             }
         }
+
         CaseBoard caseGauche = b.getCase(x-1,y);
         if (caseGauche != null){
             int colorCaseGauche = caseGauche.getColor();
@@ -171,6 +173,6 @@ public class Board {
                 return true;
             }
         }
-        return true;
+        return false;
     }
 }

@@ -109,7 +109,7 @@ public class Board {
         }
         return canMoveCard;
     }
-
+    
     public boolean isTipMoveGood(){
         return canMoveTip;
     }

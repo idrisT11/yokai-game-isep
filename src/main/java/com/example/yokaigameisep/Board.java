@@ -97,7 +97,7 @@ public class Board {
     // Methods    .............................................................................
     public boolean isPlayerMoveGood(int x, int y){
         getCopymainGrid(mainGrid);
-        if(mainGrid[x][y].getCardOnTop()== null){
+        if(mainGrid[x][y].getCardOnTop()== null && mainGrid[x][y].getColor() != Constant.VOID_CASE){
             copymainGrid[x][y]='0';
             if(isBlockOnepiece(copymainGrid)){
                 canMoveCard = true;

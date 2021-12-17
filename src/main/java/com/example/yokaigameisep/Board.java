@@ -4,6 +4,7 @@ public class Board {
 
     // Attributes used .......................................................
     private CaseBoard[][] mainGrid;
+    private char[][] copymainGrid;
     private boolean canMoveCard;
     private boolean canMoveTip;
     private boolean stateEndGame;
@@ -71,6 +72,20 @@ public class Board {
 
 
     // Getter and Setter    ....................................................................
+    public void getCopymainGrid(CaseBoard[][] mainGrid) {
+        copymainGrid = new char[Constant.LENGTH_MAIN_GRID][Constant.LENGTH_MAIN_GRID];
+        for (int i = 0; i <Constant.LENGTH_MAIN_GRID; i++) {
+            for (int j = 0; j < Constant.LENGTH_MAIN_GRID; j++) {
+                if(mainGrid[i][j].getColor() == Constant.VOID_CASE) {
+                    copymainGrid[i][j]='0';
+                } else {
+                    copymainGrid[i][j]='A';
+                }
+            }
+        }
+    }
+
+
     public CaseBoard[][] getMainGrid() {
         return mainGrid;
     }
@@ -80,8 +95,18 @@ public class Board {
     }
 
     // Methods    .............................................................................
-    public boolean isPlayerMoveGood(){
-
+    public boolean isPlayerMoveGood(int x, int y){
+        getCopymainGrid(mainGrid);
+        if(mainGrid[x][y].getCardOnTop()== null){
+            copymainGrid[x][y]='0';
+            if(isBlockOnepiece(copymainGrid)){
+                canMoveCard = true;
+            } else {
+                canMoveCard = false;
+            }
+        } else {
+            canMoveCard = false;
+        }
         return canMoveCard;
     }
 
@@ -100,6 +125,110 @@ public class Board {
     public void makeMove(){
 
     }
+
+
+    public boolean isBlockOnepiece(char[][] copymainGrid){
+        int[] memory={0,0};
+        boolean shouldBreak = false;
+        int i,j;
+        boolean inOnePiece = true;
+
+        for (i = 0; i <Constant.LENGTH_MAIN_GRID-1; i++) {    // get first element with a card on it
+            for (j = 0; j < Constant.LENGTH_MAIN_GRID-1; j++) {
+                if(copymainGrid[i][j]=='A'){    // has a card
+                    copymainGrid[i][j]='B';
+                    memory[0]=i;
+                    memory[1]=j;
+                    shouldBreak = true;
+                    break;
+                }
+            }
+            if(shouldBreak){
+                break;
+            }
+        }
+        i=memory[0];
+        j=memory[1];
+
+        while (copymainGrid[i][j]=='B' && j<11) {           // si un élément a une carte
+            if(copymainGrid[i+1][j]=='A'){          // checker l'élément de dessous
+                copymainGrid[i+1][j]='B';
+                int k = j;
+                while(copymainGrid[i+1][k+1]=='A'){  // for the first line after first element check elements on the right
+                    copymainGrid[i+1][k+1]='B';
+                    k +=1;
+                }
+                k=j;
+                while(copymainGrid[i+1][k-1]=='A'){   // for line k check elements on the left
+                    copymainGrid[i+1][k-1]='B';
+                    k -=1;
+                }
+            }
+            if(copymainGrid[i][j+1]=='A'){          // checker l'élément à droite de l'élément de base
+                copymainGrid[i][j+1] = 'B';
+            }
+            j+=1;
+        }
+
+
+        for (i = memory[0]+1; i <Constant.LENGTH_MAIN_GRID-1; i++) {
+            for (j = 0; j < Constant.LENGTH_MAIN_GRID-1; j++) {
+                if(copymainGrid[i][j]=='B'){
+                    if(copymainGrid[i+1][j]=='A'){          // checker l'élément de dessous
+                        copymainGrid[i+1][j]='B';
+                        int k = j;
+                        while(copymainGrid[i+1][k+1]=='A'){  // for the first line after first element check elements on the right
+                            copymainGrid[i+1][k+1]='B';
+                            k +=1;
+                        }
+                        k=j;
+                        while(copymainGrid[i+1][k-1]=='A'){   // for line k check elements on the left
+                            copymainGrid[i+1][k-1]='B';
+                            k -=1;
+                        }
+                    }
+                    if(copymainGrid[i][j+1]=='A'){          // checker l'élément à droite de l'élément de base
+                        copymainGrid[i][j+1] = 'B';
+                    }
+                }
+            }
+        }
+
+
+        for (i = Constant.LENGTH_MAIN_GRID-1; i > 0; i--) {
+            for (j = 0; j < Constant.LENGTH_MAIN_GRID - 1; j++) {
+                if(copymainGrid[i][j]=='B'){
+
+                    if(copymainGrid[i-1][j]=='A'){          // checker l'élément de dessus
+                        copymainGrid[i-1][j]='B';
+                        int k = j;
+                        while(copymainGrid[i-1][k+1]=='A'){  // for the first line after first element check elements on the right
+                            copymainGrid[i-1][k+1]='B';
+                            k +=1;
+                        }
+                        k=j;
+                        while(copymainGrid[i-1][k-1]=='A'){   // for line k check elements on the left
+                            copymainGrid[i-1][k-1]='B';
+                            k -=1;
+                        }
+                    }
+                }
+            }
+        }
+
+        for (i = 0; i <Constant.LENGTH_MAIN_GRID-1; i++) {    // get first element with a card on it
+            for (j = 0; j < Constant.LENGTH_MAIN_GRID - 1; j++) {
+                if(copymainGrid[i][j]=='A'){
+                    inOnePiece = false;
+                }
+            }
+        }
+
+        return inOnePiece;
+    }
+
+
+
 
     public CaseBoard getCase(int x, int y){
         if(x < 0 || y < 0 || x >= Constant.LENGTH_MAIN_GRID || y >= Constant.LENGTH_MAIN_GRID)

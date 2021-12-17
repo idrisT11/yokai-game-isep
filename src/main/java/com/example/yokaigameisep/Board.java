@@ -134,7 +134,7 @@ public class Board {
     }
 
 
-    public boolean IsIndiceMoveGood (Board b, int x, int y) {
+    public static boolean IsIndiceMoveGood(Board b, int x, int y) {
 
 
         CaseBoard caseConcernée = b.getCase(x, y);

@@ -22,6 +22,12 @@ public class PlateauComponent extends Group {
     private Board board;
 
 
+    //===================================
+    private boolean returnCart;
+    private boolean Cart;
+    private boolean chooseCart;
+
+
 
 
     public PlateauComponent(Board board){
@@ -78,8 +84,17 @@ public class PlateauComponent extends Group {
                     public void handle(ActionEvent e) {
 
                         Node n = (Node) e.getSource();
-                        n.setStyle("-fx-background-color: black");
+                        n.setStyle("fx-background-image: url(\"cartes_individuelles/carte_bleue.pdf\")");
+                        for (int k = 0; k < Constant.LENGTH_MAIN_GRID; k++) {
+                            for (int l = 0; l < Constant.LENGTH_MAIN_GRID; l++) {
+                                if ( Board.IsIndiceMoveGood(board, k, l) )
+                                {
+                                    b_list[k][l].setStyle("-fx-background-color: #33AACC");
+                                    b_list[k][l].setOpacity(0.5);
+                                }
 
+                            }
+                        }
 
                     }
                 });

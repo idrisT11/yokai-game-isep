@@ -1,0 +1,57 @@
+
+
+
+/* =================Card Button======================== */
+/* #################################################### */
+CardButtonComponent{
+    -fx-border-color : #444A;
+    -fx-border-radius: 7px;
+}
+
+CardButtonComponent:hover{
+    -fx-opacity: 0.5;
+}
+
+/* ---------------Board Card---------------------------*/
+BoardCardButtonComponent{
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 60 60;
+    -fx-background-position: center center;
+
+    -fx-border-color : #444A;
+    -fx-border-radius: 7px;
+}
+BoardCardButtonComponent:hover{
+    -fx-opacity: 0.5;
+}
+
+#BTN_BOARD_A_DOS{
+    -fx-background-image: url("cartes_individuelles/dos_carte.png");
+}
+#BTN_BOARD_VOID{
+    -fx-background-color: white;
+}
+#BTN_BOARD_BLUE{
+    -fx-background-image: url("cartes_individuelles/carte_bleue.png");
+}
+#BTN_BOARD_RED{
+    -fx-background-image: url("cartes_individuelles/carte_rouge.png");
+}
+#BTN_BOARD_GREEN{
+    -fx-background-image: url("cartes_individuelles/carte_verte.png");
+}
+#BTN_BOARD_PURPLE{
+    -fx-background-image: url("cartes_individuelles/carte_violette.png");
+}
+/*----------------------------------------------------*/
+#button_dos_cart{
+    -fx-background-image: url("cartes_individuelles/dos_carte.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 60 60;
+    -fx-background-position: center center;
+
+
+    /*-fx-background-radius: 7px;
+    /*-fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.8), 10, 0, 0, 0);*/
+
+}

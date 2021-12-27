@@ -28,7 +28,11 @@ public class MainYokai extends Application {
 
 
         //=======================================
-        Scene scene = new Scene(g, 1000, 900);
+        Scene scene = new Scene(g, 1000, 800);
+
+        scene.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
+
+
         stage.setTitle("Hello!");
         stage.setScene(scene);
         stage.show();

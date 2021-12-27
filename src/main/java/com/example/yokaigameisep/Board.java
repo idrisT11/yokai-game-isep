@@ -69,18 +69,20 @@ public class Board {
     }
 
 
-
-
     // Getter and Setter    ....................................................................
     public void getCopymainGrid(CaseBoard[][] mainGrid) {
         copymainGrid = new char[Constant.LENGTH_MAIN_GRID][Constant.LENGTH_MAIN_GRID];
+
         for (int i = 0; i <Constant.LENGTH_MAIN_GRID; i++) {
             for (int j = 0; j < Constant.LENGTH_MAIN_GRID; j++) {
+
                 if(mainGrid[i][j].getColor() == Constant.VOID_CASE) {
                     copymainGrid[i][j]='0';
-                } else {
+                }
+                else {
                     copymainGrid[i][j]='A';
                 }
+
             }
         }
     }
@@ -101,10 +103,12 @@ public class Board {
             copymainGrid[x][y]='0';
             if(isBlockOnepiece(copymainGrid)){
                 canMoveCard = true;
-            } else {
+            }
+            else {
                 canMoveCard = false;
             }
-        } else {
+        }
+        else {
             canMoveCard = false;
         }
         return canMoveCard;
@@ -131,8 +135,9 @@ public class Board {
         return canTurnCard;
     }
 
-    public void makeMove(){
-
+    public void makeMove(int x, int y, int newX, int newY){
+        mainGrid[newX][newY] = mainGrid[x][y];
+        mainGrid[x][y] = CaseBoard.NullCard();
     }
 
 
@@ -237,12 +242,16 @@ public class Board {
     }
 
 
-
-
     public CaseBoard getCase(int x, int y){
         if(x < 0 || y < 0 || x >= Constant.LENGTH_MAIN_GRID || y >= Constant.LENGTH_MAIN_GRID)
             return null;
         return mainGrid[x][y];
+    }
+
+    public void removeCase(int x, int y){
+        if(x < 0 || y < 0 || x >= Constant.LENGTH_MAIN_GRID || y >= Constant.LENGTH_MAIN_GRID)
+            return;
+        mainGrid[x][y].setColor(Constant.VOID_CASE);
     }
 
     public void printBoard(){
@@ -273,18 +282,27 @@ public class Board {
     }
 
 
-    public static boolean IsIndiceMoveGood(Board b, int x, int y) {
+    public boolean IsIndiceMoveGood(Board b, int x, int y) {
+        getCopymainGrid(mainGrid);
 
 
         CaseBoard caseConcernée = b.getCase(x, y);
+
         int colorCaseConcernee = caseConcernée.getColor();
-        if (colorCaseConcernee != 0) {
+        if (colorCaseConcernee != Constant.VOID_CASE) {
             return false;
         }
-        CaseBoard caseDroite = b.getCase(x+1,y);
+
+        if (!isBlockOnepiece(copymainGrid))
+            return false;
+
+
+        CaseBoard caseDroite = b.getCase(x+1, y);
         if (caseDroite != null){
             int colorCaseDroite = caseDroite.getColor();
-            if (colorCaseDroite != 0) {
+            if (colorCaseDroite != Constant.VOID_CASE) {
+
+                caseConcernée.setColor(colorCaseConcernee);
                 return true;
             }
         }
@@ -292,22 +310,23 @@ public class Board {
         CaseBoard caseGauche = b.getCase(x-1,y);
         if (caseGauche != null){
             int colorCaseGauche = caseGauche.getColor();
-            if (colorCaseGauche != 0) {
+            if (colorCaseGauche != Constant.VOID_CASE) {
                 return true;
             }
         }
-        boolean stateCaseHaut;
+
         CaseBoard caseHaut = b.getCase(x,y+1);
         if (caseHaut != null){
             int colorCaseHaut = caseHaut.getColor();
-            if (colorCaseHaut != 0) {
+            if (colorCaseHaut != Constant.VOID_CASE) {
                 return true;
             }
         }
+
         CaseBoard caseBas = b.getCase(x,y-1);
         if (caseBas != null){
             int colorCaseBas = caseBas.getColor();
-            if (colorCaseBas != 0) {
+            if (colorCaseBas != Constant.VOID_CASE) {
                 return true;
             }
         }

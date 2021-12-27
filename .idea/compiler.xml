@@ -13,4 +13,9 @@
       <module name="yokai-game-isep" target="11" />
     </bytecodeTargetLevel>
   </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="yokai-game-isep" options="--add-exports javafx.controls/com.sun.javafx.scene.control.skin=com.example.yokaigameisep" />
+    </option>
+  </component>
 </project>

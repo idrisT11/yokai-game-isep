@@ -12,6 +12,10 @@ public class CaseBoard {
 
     }
 
+    static public CaseBoard NullCard(){
+        return new CaseBoard(Constant.VOID_CASE, null);
+    }
+
     public int getColor() {
         return color;
     }

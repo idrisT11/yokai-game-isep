@@ -21,8 +21,8 @@ public class BoardCardButtonComponent extends CardButtonComponent {
     public BoardCardButtonComponent(CaseBoard card){
         super();
 
-        this.setPrefWidth(60);
-        this.setPrefHeight(60);
+        this.setPrefWidth(70);
+        this.setPrefHeight(70);
 
         this.setMinWidth(60);
         this.setMinHeight(60);

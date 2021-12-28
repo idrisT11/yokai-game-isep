@@ -13,7 +13,7 @@ import javafx.application.Application;
 public class MainYokai extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        //FXMLLoader fxmlLoader = new FXMLLoader(MainYokai.class.getResource("hello-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(MainYokai.class.getResource("hello-view.fxml"));
         //=========================================
 
 
@@ -28,7 +28,7 @@ public class MainYokai extends Application {
 
 
         //=======================================
-        Scene scene = new Scene(g, 1000, 800);
+        Scene scene = new Scene(fxmlLoader.load(), 1000, 700);
 
         scene.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
 

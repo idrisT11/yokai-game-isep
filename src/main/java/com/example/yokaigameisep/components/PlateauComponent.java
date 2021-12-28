@@ -8,9 +8,11 @@ import com.sun.javafx.scene.control.skin.Utils;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Orientation;
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 
@@ -24,8 +26,11 @@ public class PlateauComponent extends Group {
 
 
     //===================================
-    private boolean returnCard_1;
-    private boolean returnCard_2;
+    private int currentState;
+
+    private boolean firstCardTurned;
+    private boolean secondCardTurned;
+
     private boolean cardSelected;
     private boolean Card;
     private boolean chooseCard;
@@ -38,22 +43,36 @@ public class PlateauComponent extends Group {
 
     public PlateauComponent(Board board){
 
+        currentState = Constant.WAITING_TO_TURN;
+        firstCardTurned = false;
+        secondCardTurned = false;
+        cardSelected = false;
+        selectedCardPos = null;
+
         this.board = board;
 
         ObservableList list = this.getChildren();
 
         initPlateau();
 
-        list.add(g);
+        ScrollPane scroll = new ScrollPane();
+        scroll.setContent(g);
+        scroll.setVbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);
+        scroll.setHbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);
+
+        list.add(scroll);
 
     }
 
     public void initPlateau(){
+
         g = new GridPane();
         g.setVgap(10);
         g.setHgap(10);
 
         b_list = new BoardCardButtonComponent[Constant.LENGTH_MAIN_GRID][Constant.LENGTH_MAIN_GRID];
+
+
 
         for (int i = 0; i < Constant.LENGTH_MAIN_GRID; i++) {
             for (int j = 0; j < Constant.LENGTH_MAIN_GRID; j++) {
@@ -70,19 +89,34 @@ public class PlateauComponent extends Group {
                     public void handle(ActionEvent e) {
 
                         BoardCardButtonComponent n = (BoardCardButtonComponent) e.getSource();
-                        if (cardSelected){
-                            moveCard(finalI, finalJ);
-                            //selectedCardPos = null;
-                            cardSelected = false;
-                        }
-                        else
-                        {
-                            cardSelected = true;
-                            selectedCardPos = new int[]{finalI, finalJ};
 
-                            printPossibleMoves();
-                        }
+                        if( currentState == Constant.WAITING_TO_TURN ){
 
+                            //if the user have clicked on an invalid card
+                            if (!board.isCardTurnable(finalI, finalJ))
+                                return;
+
+                            if (!firstCardTurned){
+                                n.showCard();
+                                firstCardTurned = true;
+                            }
+                            else if (firstCardTurned && !secondCardTurned){
+                                n.showCard();
+                                secondCardTurned = true;
+                            }
+                        }
+                        if (  currentState == Constant.WAITING_TO_MOVE  ) {
+                            if (cardSelected) {
+                                moveCard(finalI, finalJ);
+                                //selectedCardPos = null;
+                                cardSelected = false;
+                            } else {
+                                cardSelected = true;
+                                selectedCardPos = new int[]{finalI, finalJ};
+
+                                printPossibleMoves();
+                            }
+                        }
 
                     }
                 });

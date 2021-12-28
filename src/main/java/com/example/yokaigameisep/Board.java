@@ -10,7 +10,7 @@ public class Board {
     private boolean stateEndGame;
     private boolean canTurnCard;
 
-    // Constructor ....................................................................
+    // Initializer ....................................................................
     public CaseBoard[][] Initialize_Board() {
 
         mainGrid = new CaseBoard[Constant.LENGTH_MAIN_GRID][Constant.LENGTH_MAIN_GRID];
@@ -87,20 +87,11 @@ public class Board {
         }
     }
 
-
-    public CaseBoard[][] getMainGrid() {
-        return mainGrid;
-    }
-
-    public void setMainGrid(CaseBoard[][] mainGrid) {
-        this.mainGrid = mainGrid;
-    }
-
     // Methods    .............................................................................
     public boolean isPlayerMoveGood(int x, int y){
         getCopymainGrid(mainGrid);
         if(mainGrid[x][y].getCardOnTop()== null && mainGrid[x][y].getColor() != Constant.VOID_CASE){
-            copymainGrid[x][y]='0';
+            copymainGrid[x][y] = '0';
             if(isBlockOnepiece(copymainGrid)){
                 canMoveCard = true;
             }
@@ -127,11 +118,14 @@ public class Board {
     }
 
     public boolean isCardTurnable(int x, int y){
-        if(mainGrid[x][y].getColor()==Constant.VOID_CASE){
-            canTurnCard = true;
-        } else {
+
+        if( mainGrid[x][y].getColor() == Constant.VOID_CASE )
             canTurnCard = false;
-        }
+        else if (mainGrid[x][y].getCardOnTop() != null)
+            canTurnCard = false;
+        else
+            canTurnCard = true;
+
         return canTurnCard;
     }
 

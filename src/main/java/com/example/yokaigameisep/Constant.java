@@ -9,4 +9,13 @@ public class Constant {
 
 
     public static final int LENGTH_MAIN_GRID = 12;
+
+
+    //==================================================
+    //UI Constante
+    public static final int WAITING_TO_TURN = 0;
+    public static final int WAITING_TO_MOVE = 1;
+    public static final int WAITING_TO_TIP = 2;
+
+
 }

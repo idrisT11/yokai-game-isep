@@ -21,11 +21,11 @@ public class BoardCardButtonComponent extends CardButtonComponent {
     public BoardCardButtonComponent(CaseBoard card){
         super();
 
-        this.setPrefWidth(70);
-        this.setPrefHeight(70);
+        this.setPrefWidth(50);
+        this.setPrefHeight(50);
 
-        this.setMinWidth(60);
-        this.setMinHeight(60);
+        this.setMinWidth(50);
+        this.setMinHeight(50);
 
         this.setCard(card);
 
@@ -33,7 +33,7 @@ public class BoardCardButtonComponent extends CardButtonComponent {
 
     public void setCard(CaseBoard card){
         this.card = card;
-        System.out.println(card);
+
         if (card.getColor() == Constant.VOID_CASE){
             this.setId(ID_EMPTY);
         }

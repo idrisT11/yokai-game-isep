@@ -15,14 +15,14 @@ CardButtonComponent:hover{
 /* ---------------Board Card---------------------------*/
 BoardCardButtonComponent{
     -fx-background-repeat: no-repeat;
-    -fx-background-size: 70 70;
+    -fx-background-size: 50 50;
     -fx-background-position: center center;
 
     -fx-border-color : #444A;
     -fx-border-radius: 7px;
 }
 BoardCardButtonComponent:hover{
-    -fx-opacity: 0.5;
+    -fx-opacity: 0.8;
 }
 
 #BTN_BOARD_A_DOS{
@@ -44,6 +44,41 @@ BoardCardButtonComponent:hover{
     -fx-background-image: url("cartes_individuelles/carte_violette.png");
 }
 /*----------------------------------------------------*/
+
+/* ---------------Deck Card---------------------------*/
+TipCardButtonComponent{
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 80 80;
+    -fx-background-position: center center;
+
+    -fx-border-color : #444A;
+    -fx-border-radius: 7px;
+}
+TipCardButtonComponent:hover{
+    -fx-opacity: 0.7;
+}
+
+#BTN_DECK_A_DOS{
+    -fx-background-image: url("cartes_individuelles/dos_indice.png");
+
+}
+#BTN_DECK_VOID{
+    -fx-background-color: white;
+}
+#BTN_DECK_BLUE{
+    -fx-background-image: url("cartes_individuelles/indice_bleu.png");
+}
+#BTN_DECK_RED{
+    -fx-background-image: url("cartes_individuelles/indice_rouge.png");
+}
+#BTN_DECK_GREEN{
+    -fx-background-image: url("cartes_individuelles/indice_verte.png");
+}
+#BTN_DECK_PURPLE{
+    -fx-background-image: url("cartes_individuelles/indice_violet.png");
+}
+/*----------------------------------------------------*/
+
 #button_dos_cart{
     -fx-background-image: url("cartes_individuelles/dos_carte.png");
     -fx-background-repeat: no-repeat;

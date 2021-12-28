@@ -1,13 +1,15 @@
 package com.example.yokaigameisep;
 
 public class TipCard {
+
     private int nbColors;
+    private boolean prepared;
+    private int colorValue1, colorValue2, colorValue3;
 
     public void setColorValue1(int colorValue1) {
         this.colorValue1 = colorValue1;
     }
 
-    private boolean prepared;
 
     public int getNbColors() {
         return nbColors;
@@ -45,7 +47,6 @@ public class TipCard {
         this.colorValue3 = colorValue3;
     }
 
-    private int colorValue1, colorValue2, colorValue3;
 
 
     @Override

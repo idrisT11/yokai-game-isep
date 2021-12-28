@@ -1,12 +1,14 @@
 package com.example.yokaigameisep;
 
 
+import com.example.yokaigameisep.components.GameComponent;
 import com.example.yokaigameisep.components.PlateauComponent;
 import javafx.application.Application;
         import javafx.fxml.FXMLLoader;
         import javafx.scene.Group;
         import javafx.scene.Scene;
-        import javafx.stage.Stage;
+import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
 
         import java.io.IOException;
 
@@ -18,23 +20,20 @@ public class MainYokai extends Application {
 
 
 
-        Board board = new Board();
-        board.Initialize_Board();
-
-        board.printBoard();
-        Group g = new PlateauComponent(board);
-
 
 
 
         //=======================================
-        Scene scene = new Scene(fxmlLoader.load(), 1000, 700);
+        GridPane g = new GameComponent();
+        Scene scene = new Scene(g );
 
         scene.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
 
 
         stage.setTitle("Hello!");
         stage.setScene(scene);
+        //stage.setResizable(false);
+        stage.setMaximized(true);
         stage.show();
     }
 

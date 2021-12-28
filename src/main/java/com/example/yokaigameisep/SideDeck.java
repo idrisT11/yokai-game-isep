@@ -3,11 +3,16 @@ package com.example.yokaigameisep;
 import java.io.File;
 import java.util.*;
 
-class SideDeck {
+public class SideDeck {
 
-    private ArrayList<TipCard>tipPrepared;
+    private ArrayList<TipCard> tipPrepared;
     private Queue<TipCard> drawFile;
+
     public SideDeck(){
+        //TipPrepared
+        tipPrepared = new ArrayList<>();
+
+
         //lien pour le queueus : http://tutorials.jenkov.com/java-collections/queue.html
         drawFile = new LinkedList<TipCard>();
         ArrayList piocheNonMelangee = new ArrayList();//liste temporaire pour stocker les cartes créees
@@ -88,9 +93,17 @@ class SideDeck {
 
         }
 
-        System.out.println(drawFile);
-    }
 
+    }
+    public TipCard revealCard(){
+        TipCard card = drawFile.remove();
+        tipPrepared.add(card);
+
+        return card;
+    }
+    public ArrayList<TipCard> getTipPrepared() {
+        return tipPrepared;
+    }
 }
 
 

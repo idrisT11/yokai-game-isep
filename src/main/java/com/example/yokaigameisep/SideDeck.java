@@ -11,6 +11,10 @@ public class SideDeck {
     public SideDeck(){
         //TipPrepared
         tipPrepared = new ArrayList<>();
+        for (int i = 0; i < 7; i++) {
+            tipPrepared.add(null);
+            System.out.println(5555);
+        }
 
 
         //lien pour le queueus : http://tutorials.jenkov.com/java-collections/queue.html
@@ -97,10 +101,18 @@ public class SideDeck {
     }
     public TipCard revealCard(){
         TipCard card = drawFile.remove();
-        tipPrepared.add(card);
+
+        int index = tipPrepared.indexOf(null);
+        System.out.println(tipPrepared);
+        tipPrepared.set(index, card);
 
         return card;
     }
+
+    public boolean isEmpty(){
+        return drawFile.isEmpty();
+    }
+
     public ArrayList<TipCard> getTipPrepared() {
         return tipPrepared;
     }

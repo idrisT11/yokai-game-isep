@@ -88,7 +88,7 @@ public class Board {
     }
 
     // Methods    .............................................................................
-    public boolean isPlayerMoveGood(int x, int y){
+    public boolean isCardSelectable(int x, int y){
         getCopymainGrid(mainGrid);
         if(mainGrid[x][y].getCardOnTop()== null && mainGrid[x][y].getColor() != Constant.VOID_CASE){
             copymainGrid[x][y] = '0';
@@ -106,6 +106,7 @@ public class Board {
     }
     
     public boolean isTipMoveGood(int x, int y){
+        canMoveTip = false;
         // move is good if there's a card on a case but not a card and a tip // other potential name canPlaceTip
         if(mainGrid[x][y].getColor() != Constant.VOID_CASE && mainGrid[x][y].getCardOnTop()== null){
             canMoveTip = true;
@@ -132,6 +133,10 @@ public class Board {
     public void makeMove(int x, int y, int newX, int newY){
         mainGrid[newX][newY] = mainGrid[x][y];
         mainGrid[x][y] = CaseBoard.NullCard();
+    }
+
+    public void setCardOnTop(TipCard cardOnTop, int x, int y){
+        mainGrid[x][y].setCardOnTop(cardOnTop);
     }
 
 
@@ -276,22 +281,25 @@ public class Board {
     }
 
 
-    public boolean IsIndiceMoveGood(Board b, int x, int y) {
+    public boolean IsIndiceMoveGood(int x, int y, int origin_x, int origin_y) {
         getCopymainGrid(mainGrid);
 
 
-        CaseBoard caseConcernée = b.getCase(x, y);
+        CaseBoard caseConcernée = this.getCase(x, y);
 
         int colorCaseConcernee = caseConcernée.getColor();
         if (colorCaseConcernee != Constant.VOID_CASE) {
             return false;
         }
 
+        copymainGrid[origin_x][origin_y] = '0';
+        copymainGrid[x][y] = 'A';
         if (!isBlockOnepiece(copymainGrid))
             return false;
 
 
-        CaseBoard caseDroite = b.getCase(x+1, y);
+
+        CaseBoard caseDroite = this.getCase(x+1, y);
         if (caseDroite != null){
             int colorCaseDroite = caseDroite.getColor();
             if (colorCaseDroite != Constant.VOID_CASE) {
@@ -301,7 +309,7 @@ public class Board {
             }
         }
 
-        CaseBoard caseGauche = b.getCase(x-1,y);
+        CaseBoard caseGauche = this.getCase(x-1,y);
         if (caseGauche != null){
             int colorCaseGauche = caseGauche.getColor();
             if (colorCaseGauche != Constant.VOID_CASE) {
@@ -309,7 +317,7 @@ public class Board {
             }
         }
 
-        CaseBoard caseHaut = b.getCase(x,y+1);
+        CaseBoard caseHaut = this.getCase(x,y+1);
         if (caseHaut != null){
             int colorCaseHaut = caseHaut.getColor();
             if (colorCaseHaut != Constant.VOID_CASE) {
@@ -317,7 +325,7 @@ public class Board {
             }
         }
 
-        CaseBoard caseBas = b.getCase(x,y-1);
+        CaseBoard caseBas = this.getCase(x,y-1);
         if (caseBas != null){
             int colorCaseBas = caseBas.getColor();
             if (colorCaseBas != Constant.VOID_CASE) {
@@ -326,4 +334,6 @@ public class Board {
         }
         return false;
     }
+
+
 }

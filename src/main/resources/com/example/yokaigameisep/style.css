@@ -51,8 +51,8 @@ TipCardButtonComponent{
     -fx-background-size: 80 80;
     -fx-background-position: center center;
 
-    -fx-border-color : #444A;
-    -fx-border-radius: 7px;
+    /*-fx-border-color : #444A;
+    */-fx-border-radius: 7px;
 }
 TipCardButtonComponent:hover{
     -fx-opacity: 0.7;
@@ -76,6 +76,41 @@ TipCardButtonComponent:hover{
 }
 #BTN_DECK_PURPLE{
     -fx-background-image: url("cartes_individuelles/indice_violet.png");
+}
+/****/
+#BTN_DECK_BLUE_RED{
+    -fx-background-image: url("cartes_individuelles/indice_bleu_rouge.png");
+}
+#BTN_DECK_BLUE_GREEN{
+    -fx-background-image: url("cartes_individuelles/indice_bleu_vert.png");
+}
+#BTN_DECK_BLUE_RED{
+    -fx-background-image: url("cartes_individuelles/indice_bleu_rouge.png");
+}
+#BTN_DECK_BLUE_PURPLE{
+    -fx-background-image: url("cartes_individuelles/indice_bleu_violet.png");
+}
+#BTN_DECK_GREEN_RED{
+    -fx-background-image: url("cartes_individuelles/indice_vert_rouge.png");
+}
+#BTN_DECK_GREEN_PURPLE{
+    -fx-background-image: url("cartes_individuelles/indice_vert_violet.png");
+}
+#BTN_DECK_PURPLE_RED{
+    -fx-background-image: url("cartes_individuelles/indice_violet_rouge.png");
+}
+/****/
+#BTN_DECK_BLUE_GREEN_RED{
+    -fx-background-image: url("cartes_individuelles/indice_bleu_vert_rouge.png");
+}
+#BTN_DECK_BLUE_GREEN_PURPLE{
+    -fx-background-image: url("cartes_individuelles/indice_bleu_violet.png");
+}
+#BTN_DECK_GREEN_PURPLE_RED{
+    -fx-background-image: url("cartes_individuelles/indice_vert_violet_rouge.png");
+}
+#BTN_DECK_BLUE_PURPLE_RED{
+    -fx-background-image: url("cartes_individuelles/indice_bleu_violet_rouge.png");
 }
 /*----------------------------------------------------*/
 

@@ -43,7 +43,6 @@ public class TipCardButtonComponent extends CardButtonComponent {
         }
 
 
-
         if (card == null || card.isPrepared())
             this.setId(ID_EMPTY);
 
@@ -58,17 +57,50 @@ public class TipCardButtonComponent extends CardButtonComponent {
 
 
             else if(card.getNbColors() == 2){
-                String currentID = ID_ + chooseColor(card.getColorValue1()) + chooseColor(card.getColorValue2());
+                String currentID = ID_;
+                String a1 = chooseColor(card.getColorValue1());
+                String a2 = chooseColor(card.getColorValue2());
+
+                if (a1 == "_BLUE") currentID += a1;
+                else if (a2 == "_BLUE") currentID += a2;
+
+                if (a1 == "_GREEN") currentID += a1;
+                else if (a2 == "_GREEN") currentID += a2;
+
+                if (a1 == "_PURPLE") currentID += a1;
+                else if (a2 == "_PURPLE") currentID += a2;
+
+                if (a1 == "_RED") currentID += a1;
+                else if (a2 == "_RED") currentID += a2;
+
+
 
                 this.setId(currentID);
             }
 
 
             else if(card.getNbColors() == 3){
-                String currentID = ID_
-                        + chooseColor(card.getColorValue1())
-                        + chooseColor(card.getColorValue2())
-                        + chooseColor(card.getColorValue3());
+                String currentID = ID_;
+                String a1 = chooseColor(card.getColorValue1());
+                String a2 = chooseColor(card.getColorValue2());
+                String a3 = chooseColor(card.getColorValue3());
+
+                if (a1 == "_BLUE") currentID += a1;
+                else if (a2 == "_BLUE") currentID += a2;
+                else if (a2 == "_BLUE") currentID += a2;
+
+                if (a1 == "_GREEN") currentID += a1;
+                else if (a2 == "_GREEN") currentID += a2;
+                else if (a3 == "_GREEN") currentID += a3;
+
+
+                if (a1 == "_PURPLE") currentID += a1;
+                else if (a2 == "_PURPLE") currentID += a2;
+                else if (a3 == "_PURPLE") currentID += a3;
+
+                if (a1 == "_RED") currentID += a1;
+                else if (a2 == "_RED") currentID += a2;
+                else if (a3 == "_RED") currentID += a3;
 
                 this.setId(currentID);
             }
@@ -96,4 +128,7 @@ public class TipCardButtonComponent extends CardButtonComponent {
         return value;
     }
 
+    public TipCard getCard() {
+        return card;
+    }
 }

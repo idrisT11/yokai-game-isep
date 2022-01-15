@@ -336,7 +336,7 @@ public class Board {
         return false;
     }
 
-    public boolean IsGameWonOrNot() {
+    public boolean IsColorInOneBlock() {
         boolean red_bool = false;
         boolean green_bool = false;
         boolean blue_bool = false;
@@ -422,6 +422,19 @@ public class Board {
         }
         return win_condition;
 
+}
+
+public boolean isHintEqualCard(){
+        //check if hint is equal to the color of the card
+
+}
+
+public boolean isGameWon(){
+        boolean win_game = false;
+        if(IsColorInOneBlock && IsHintEqualCard){
+            win_game= true;
+        }
+        return win_game;
 }
 
 

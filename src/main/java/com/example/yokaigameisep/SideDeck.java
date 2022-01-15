@@ -1,6 +1,5 @@
 package com.example.yokaigameisep;
 
-import java.io.File;
 import java.util.*;
 
 public class SideDeck {

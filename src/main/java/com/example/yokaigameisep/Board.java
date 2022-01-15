@@ -5,6 +5,7 @@ public class Board {
     // Attributes used .......................................................
     private CaseBoard[][] mainGrid;
     private char[][] copymainGrid;
+    private char[][] copycolormainGrid;
     private boolean canMoveCard;
     private boolean canMoveTip;
     private boolean stateEndGame;
@@ -334,6 +335,99 @@ public class Board {
         }
         return false;
     }
+
+    public boolean IsGameWonOrNot() {
+        boolean red_bool = false;
+        boolean green_bool = false;
+        boolean blue_bool = false;
+        boolean purple_bool = false;
+        boolean win_condition = false;
+
+        copycolormainGrid = new char[Constant.LENGTH_MAIN_GRID][Constant.LENGTH_MAIN_GRID];
+
+        for (int i = 0; i <Constant.LENGTH_MAIN_GRID; i++) {    // Color Red
+            for (int j = 0; j < Constant.LENGTH_MAIN_GRID; j++) {
+
+                if(mainGrid[i][j].getColor()== Constant.COLOR_RED) {
+                    copycolormainGrid[i][j]='A';
+                } else {
+                    copycolormainGrid[i][j]='0';
+                }
+            }
+        }
+        isBlockOnepiece(copycolormainGrid);
+        red_bool = inOnePiece;
+
+        for (int i = 0; i <Constant.LENGTH_MAIN_GRID; i++) {    // Reinitialize array
+            for (int j = 0; j < Constant.LENGTH_MAIN_GRID; j++) {
+                copycolormainGrid[i][j]="0";
+            }
+        }
+
+
+        for (int i = 0; i <Constant.LENGTH_MAIN_GRID; i++) {    // Color Green
+            for (int j = 0; j < Constant.LENGTH_MAIN_GRID; j++) {
+
+                if(mainGrid[i][j].getColor()== Constant.COLOR_GREEN) {
+                    copycolormainGrid[i][j]='A';
+                } else {
+                    copycolormainGrid[i][j]='0';
+                }
+            }
+        }
+        isBlockOnepiece(copycolormainGrid);
+        green_bool = inOnePiece;
+
+        for (int i = 0; i <Constant.LENGTH_MAIN_GRID; i++) {    // Reinitialize array
+            for (int j = 0; j < Constant.LENGTH_MAIN_GRID; j++) {
+                copycolormainGrid[i][j]="0";
+            }
+        }
+
+        for (int i = 0; i <Constant.LENGTH_MAIN_GRID; i++) {    // Color Blue
+            for (int j = 0; j < Constant.LENGTH_MAIN_GRID; j++) {
+
+                if(mainGrid[i][j].getColor()== Constant.COLOR_GREEN) {
+                    copycolormainGrid[i][j]='A';
+                } else {
+                    copycolormainGrid[i][j]='0';
+                }
+            }
+        }
+        isBlockOnepiece(copycolormainGrid);
+        green_bool = inOnePiece;
+
+        for (int i = 0; i <Constant.LENGTH_MAIN_GRID; i++) {    // Reinitialize array
+            for (int j = 0; j < Constant.LENGTH_MAIN_GRID; j++) {
+                copycolormainGrid[i][j]="0";
+            }
+        }
+
+
+        for (int i = 0; i <Constant.LENGTH_MAIN_GRID; i++) {    // Color Purple
+            for (int j = 0; j < Constant.LENGTH_MAIN_GRID; j++) {
+
+                if(mainGrid[i][j].getColor()== Constant.COLOR_PURPLE) {
+                    copycolormainGrid[i][j]='A';
+                } else {
+                    copycolormainGrid[i][j]='0';
+                }
+            }
+        }
+        isBlockOnepiece(copycolormainGrid);
+        purple_bool = inOnePiece;
+
+        if(red_bool && green_bool && blue_bool && purple_bool){
+            win_condition = true;
+        }
+        return win_condition;
+
+}
+
+
+
+
+
 
 
 }

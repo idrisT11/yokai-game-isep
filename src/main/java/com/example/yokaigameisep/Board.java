@@ -355,12 +355,12 @@ public class Board {
                 }
             }
         }
-        isBlockOnepiece(copycolormainGrid);
-        red_bool = inOnePiece;
+        red_bool = isBlockOnepiece(copycolormainGrid);
+
 
         for (int i = 0; i <Constant.LENGTH_MAIN_GRID; i++) {    // Reinitialize array
             for (int j = 0; j < Constant.LENGTH_MAIN_GRID; j++) {
-                copycolormainGrid[i][j]="0";
+                copycolormainGrid[i][j]='0';
             }
         }
 
@@ -368,19 +368,19 @@ public class Board {
         for (int i = 0; i <Constant.LENGTH_MAIN_GRID; i++) {    // Color Green
             for (int j = 0; j < Constant.LENGTH_MAIN_GRID; j++) {
 
-                if(mainGrid[i][j].getColor()== Constant.COLOR_GREEN) {
+                if(mainGrid[i][j].getColor()== Constant.COLOR_BLUE) {
                     copycolormainGrid[i][j]='A';
                 } else {
                     copycolormainGrid[i][j]='0';
                 }
             }
         }
-        isBlockOnepiece(copycolormainGrid);
-        green_bool = inOnePiece;
+        blue_bool = isBlockOnepiece(copycolormainGrid[][]);
+
 
         for (int i = 0; i <Constant.LENGTH_MAIN_GRID; i++) {    // Reinitialize array
             for (int j = 0; j < Constant.LENGTH_MAIN_GRID; j++) {
-                copycolormainGrid[i][j]="0";
+                copycolormainGrid[i][j]='0';
             }
         }
 
@@ -394,12 +394,11 @@ public class Board {
                 }
             }
         }
-        isBlockOnepiece(copycolormainGrid);
-        green_bool = inOnePiece;
+        green_bool = isBlockOnepiece(copycolormainGrid);
 
         for (int i = 0; i <Constant.LENGTH_MAIN_GRID; i++) {    // Reinitialize array
             for (int j = 0; j < Constant.LENGTH_MAIN_GRID; j++) {
-                copycolormainGrid[i][j]="0";
+                copycolormainGrid[i][j]='0';
             }
         }
 
@@ -414,28 +413,29 @@ public class Board {
                 }
             }
         }
-        isBlockOnepiece(copycolormainGrid);
-        purple_bool = inOnePiece;
+        purple_bool = isBlockOnepiece(copycolormainGrid);
+
 
         if(red_bool && green_bool && blue_bool && purple_bool){
             win_condition = true;
         }
         return win_condition;
 
-}
+    }
 
-public boolean isHintEqualCard(){
+    public boolean isHintEqualCard(){
         //check if hint is equal to the color of the card
 
-}
+    }
 
-public boolean isGameWon(){
+    public boolean isGameWon(){
         boolean win_game = false;
-        if(IsColorInOneBlock && IsHintEqualCard){
+        if(IsColorInOneBlock() && isHintEqualCard()){
             win_game= true;
         }
         return win_game;
-}
+    }
+
 
 
 

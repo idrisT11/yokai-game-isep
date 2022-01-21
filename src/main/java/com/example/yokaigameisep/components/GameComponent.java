@@ -100,7 +100,7 @@ public class GameComponent extends GridPane {
 
     public int get_score(){
         int score = 0;
-        if(board.isGameWon()){
+        if(isGameWon()){
             score = calc_score();
         }
         return score;
@@ -138,7 +138,7 @@ public class GameComponent extends GridPane {
 
     public boolean isGameFinished(){
         boolean isFinished = false;
-        if(sideDeck.isEmpty()){
+        if(sideDeck.isEmpty() || playerpressedbutton){
             isFinished = true;
         }
 

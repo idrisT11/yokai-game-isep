@@ -1,9 +1,6 @@
 package com.example.yokaigameisep.components;
 
-import com.example.yokaigameisep.Board;
-import com.example.yokaigameisep.Constant;
-import com.example.yokaigameisep.SideDeck;
-import com.example.yokaigameisep.TipCard;
+import com.example.yokaigameisep.*;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -94,8 +91,50 @@ public class GameComponent extends GridPane {
     }
 
 
+
     public void selectTipCard(){
         System.out.println("hallo");
 
     }
+
+
+    public int get_score(){
+        int score = 0;
+        if(board.isGameWon()){
+            score = calc_score();
+        }
+        return score;
+    }
+
+    public int calc_score(){
+        int score = 0;
+
+
+        for (int i = 0; i <Constant.LENGTH_MAIN_GRID; i++) {    // Color Purple
+            for (int j = 0; j < Constant.LENGTH_MAIN_GRID; j++) {
+                if(board.getCase(i,j).getColor() != Constant.VOID_CASE && board.getCase(i,j).getCardOnTop() != null){
+                    if(board.isTipEqualCard()){
+                        score += 1;
+                    } else {
+                        score -= 1;
+                    }
+                }
+            }
+        }
+
+        if(sideDeck.isEmpty()){ // si il reste des cartes dans la pioche
+            for(int i=0; i< sideDeck.getDrawFile().size()-1; i++){
+                score += 5;
+            }
+        }
+
+        if(!sideDeck.isEmpty()){
+            for(int i=0; i<sideDeck.getTipPrepared().size()-1; i++){
+                score += 2;
+            }
+        }
+        return score;
+    }
+
+
 }

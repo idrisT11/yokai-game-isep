@@ -7,6 +7,8 @@ public class SideDeck {
     private ArrayList<TipCard> tipPrepared;
     private Queue<TipCard> drawFile;
 
+
+
     public SideDeck(){
         //TipPrepared
         tipPrepared = new ArrayList<>();
@@ -115,6 +117,11 @@ public class SideDeck {
     public ArrayList<TipCard> getTipPrepared() {
         return tipPrepared;
     }
+
+    public Queue<TipCard> getDrawFile() {
+        return drawFile;
+    }
+
 }
 
 

@@ -88,6 +88,7 @@ public class Board {
         }
     }
 
+
     // Methods    .............................................................................
     public boolean isCardSelectable(int x, int y){
         getCopymainGrid(mainGrid);
@@ -115,9 +116,7 @@ public class Board {
         return canMoveTip;
     }
 
-    public boolean verifyEndGame(){
-        return stateEndGame;
-    }
+
 
     public boolean isCardTurnable(int x, int y){
 
@@ -248,11 +247,7 @@ public class Board {
         return mainGrid[x][y];
     }
 
-    public void removeCase(int x, int y){
-        if(x < 0 || y < 0 || x >= Constant.LENGTH_MAIN_GRID || y >= Constant.LENGTH_MAIN_GRID)
-            return;
-        mainGrid[x][y].setColor(Constant.VOID_CASE);
-    }
+
 
     public void printBoard(){
         for (int i = 0; i <Constant.LENGTH_MAIN_GRID; i++) {

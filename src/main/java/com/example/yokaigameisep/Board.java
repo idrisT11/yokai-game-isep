@@ -467,17 +467,4 @@ public class Board {
         }
         return win_game;
     }
-
-public boolean isGameFinished(){
-        boolean isFinished = false;
-
-
-        return isFinished;
-}
-
-
-
-
-
-
 }

@@ -136,5 +136,15 @@ public class GameComponent extends GridPane {
         return score;
     }
 
+    public boolean isGameFinished(){
+        boolean isFinished = false;
+        if(sideDeck.isEmpty()){
+            isFinished = true;
+        }
+
+        return isFinished;
+    }
+
+
 
 }

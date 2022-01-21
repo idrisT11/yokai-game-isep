@@ -138,7 +138,8 @@ public class GameComponent extends GridPane {
 
     public boolean isGameFinished(){
         boolean isFinished = false;
-        if(sideDeck.isEmpty() || playerpressedbutton){
+        if((sideDeck.isEmpty() & sideDeck.getTipPrepared()==null) || playerpressedbutton){
+            // may be 0 instead of null gotta check
             isFinished = true;
         }
 

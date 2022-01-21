@@ -113,7 +113,7 @@ public class GameComponent extends GridPane {
         for (int i = 0; i <Constant.LENGTH_MAIN_GRID; i++) {    // Color Purple
             for (int j = 0; j < Constant.LENGTH_MAIN_GRID; j++) {
                 if(board.getCase(i,j).getColor() != Constant.VOID_CASE && board.getCase(i,j).getCardOnTop() != null){
-                    if(board.isTipEqualCard()){
+                    if(board.isTipEqualCard(i,j)){
                         score += 1;
                     } else {
                         score -= 1;

@@ -423,13 +423,38 @@ public class Board {
 
     }
 
-    public boolean isTipEqualCard(){
+    public boolean isTipEqualCard(int x, int y){
         boolean tip_equal_card = false;
-
         //check if hint is equal to the color of the card
+        int card_color = getCase(x,y).getColor();
+        int nb_of_colors = getCase(x,y).getCardOnTop().getNbColors();
 
+        if(nb_of_colors == 1){
+            if(card_color == getCase(x,y).getCardOnTop().getColorValue1()){
+                tip_equal_card = true;
+            }
+        }
 
+        if(nb_of_colors == 2){
+            if(card_color == getCase(x,y).getCardOnTop().getColorValue1()){
+                tip_equal_card = true;
+            }
+            if(card_color == getCase(x,y).getCardOnTop().getColorValue2()){
+                tip_equal_card = true;
+            }
+        }
 
+        if(nb_of_colors == 3){
+            if(card_color == getCase(x,y).getCardOnTop().getColorValue1()){
+                tip_equal_card = true;
+            }
+            if(card_color == getCase(x,y).getCardOnTop().getColorValue2()){
+                tip_equal_card = true;
+            }
+            if(card_color == getCase(x,y).getCardOnTop().getColorValue3()){
+                tip_equal_card = true;
+            }
+        }
 
 
     return tip_equal_card;
@@ -437,7 +462,7 @@ public class Board {
 
     public boolean isGameWon(){
         boolean win_game = false;
-        if(IsColorInOneBlock() && isTipEqualCard()){
+        if(IsColorInOneBlock()){
             win_game= true;
         }
         return win_game;

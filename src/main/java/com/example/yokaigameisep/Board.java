@@ -117,7 +117,6 @@ public class Board {
     }
 
 
-
     public boolean isCardTurnable(int x, int y){
 
         if( mainGrid[x][y].getColor() == Constant.VOID_CASE )
@@ -455,11 +454,5 @@ public class Board {
     return tip_equal_card;
     }
 
-    public boolean isGameWon(){
-        boolean win_game = false;
-        if(IsColorInOneBlock()){
-            win_game= true;
-        }
-        return win_game;
-    }
+
 }

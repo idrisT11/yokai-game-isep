@@ -145,6 +145,12 @@ public class GameComponent extends GridPane {
         return isFinished;
     }
 
-
+    public boolean isGameWon(){
+        boolean win_game = false;
+        if(board.IsColorInOneBlock()){
+            win_game= true;
+        }
+        return win_game;
+    }
 
 }

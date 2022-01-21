@@ -361,7 +361,7 @@ public class Board {
         for (int i = 0; i <Constant.LENGTH_MAIN_GRID; i++) {    // Reinitialize array
             for (int j = 0; j < Constant.LENGTH_MAIN_GRID; j++) {
                 copycolormainGrid[i][j]='0';
-            }
+          }
         }
 
 
@@ -375,7 +375,7 @@ public class Board {
                 }
             }
         }
-        blue_bool = isBlockOnepiece(copycolormainGrid[][]);
+        blue_bool = isBlockOnepiece(copycolormainGrid);
 
 
         for (int i = 0; i <Constant.LENGTH_MAIN_GRID; i++) {    // Reinitialize array
@@ -423,14 +423,21 @@ public class Board {
 
     }
 
-    public boolean isHintEqualCard(){
+    public boolean isTipEqualCard(){
+        boolean tip_equal_card = false;
+
         //check if hint is equal to the color of the card
 
+
+
+
+
+    return tip_equal_card;
     }
 
     public boolean isGameWon(){
         boolean win_game = false;
-        if(IsColorInOneBlock() && isHintEqualCard()){
+        if(IsColorInOneBlock() && isTipEqualCard()){
             win_game= true;
         }
         return win_game;

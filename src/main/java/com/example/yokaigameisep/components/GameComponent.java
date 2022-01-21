@@ -122,7 +122,7 @@ public class GameComponent extends GridPane {
             }
         }
 
-        if(sideDeck.isEmpty()){ // si il reste des cartes dans la pioche
+        if(sideDeck.isEmpty()){ // s'il reste des cartes dans la pioche
             for(int i=0; i< sideDeck.getDrawFile().size()-1; i++){
                 score += 5;
             }

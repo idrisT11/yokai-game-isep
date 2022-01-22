@@ -6,9 +6,9 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.yokaigameisep.control.ChoosePlayer">
+<AnchorPane id="backGroundMenu" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.yokaigameisep.control.ChoosePlayer">
    <children>
-      <ComboBox id="input_nb_joueur" fx:id="input_nb_joueur" layoutX="141.0" layoutY="137.0" onAction="#comboAction" prefHeight="17.0" prefWidth="100.0" promptText="2" style="-fx-background-color: pink;">
+      <ComboBox id="input_nb_joueur" fx:id="input_nb_joueur" layoutX="149.0" layoutY="137.0" onAction="#comboAction" prefHeight="26.0" prefWidth="133.0" promptText="2" style="-fx-background-color: pink;">
          <items>
             <FXCollections fx:factory="observableArrayList">
                <String fx:id="2" fx:value="2" />
@@ -17,18 +17,33 @@
             </FXCollections>
          </items>
       </ComboBox>
-      <Label layoutX="21.0" layoutY="137.0" prefHeight="26.0" prefWidth="109.0" text="Nombre Joueurs" />
-      <Label layoutX="35.0" layoutY="200.0" prefHeight="26.0" prefWidth="119.0" text="Nom du joueur 1:" />
+      <Label layoutX="21.0" layoutY="137.0" prefHeight="26.0" prefWidth="133.0" text="Nombre Joueurs" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></Label>
+      <Label layoutX="21.0" layoutY="200.0" prefHeight="26.0" prefWidth="133.0" text="Nom du joueur 1:" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></Label>
       <TextField id="input_1" fx:id="input_1" layoutX="152.0" layoutY="200.0" prefHeight="26.0" prefWidth="133.0" promptText="Joueur 1" text="Joueur 1" />
       <TextField id="input_3" fx:id="input_3" disable="true" layoutX="432.0" layoutY="200.0" prefHeight="26.0" prefWidth="133.0" promptText="Joueur 3" text="Joueur 3" />
       <TextField id="input_2" fx:id="input_2" layoutX="152.0" layoutY="251.0" prefHeight="26.0" prefWidth="133.0" promptText="Joueur 2" text="Joueur 2" />
       <TextField id="input_4" fx:id="input_4" disable="true" layoutX="432.0" layoutY="251.0" prefHeight="26.0" prefWidth="133.0" promptText="Joueur 4" text="Joueur 4" />
-      <Label layoutX="35.0" layoutY="251.0" prefHeight="26.0" prefWidth="119.0" text="Nom du joueur 2:" />
-      <Label layoutX="313.0" layoutY="200.0" prefHeight="26.0" prefWidth="119.0" text="Nom du joueur 3:" />
-      <Label layoutX="313.0" layoutY="251.0" prefHeight="26.0" prefWidth="119.0" text="Nom du joueur 4:" />
-      <Label layoutX="42.0" layoutY="43.0" prefHeight="68.0" prefWidth="299.0" text="Configuration de la partie : " underline="true">
+      <Label layoutX="21.0" layoutY="251.0" prefHeight="26.0" prefWidth="133.0" text="Nom du joueur 2:" textFill="WHITE">
          <font>
-            <Font name="Dyuthi Regular" size="24.0" />
+            <Font name="System Bold" size="13.0" />
+         </font></Label>
+      <Label layoutX="299.0" layoutY="200.0" prefHeight="26.0" prefWidth="133.0" text="Nom du joueur 3:" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></Label>
+      <Label layoutX="299.0" layoutY="251.0" prefHeight="26.0" prefWidth="133.0" text="Nom du joueur 4:" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></Label>
+      <Label layoutX="42.0" layoutY="43.0" prefHeight="68.0" prefWidth="450.0" text="Configuration de la partie : " textFill="WHITE" underline="true">
+         <font>
+            <Font name="Dyuthi Regular" size="36.0" />
          </font>
       </Label>
       <Button fx:id="goBtn" layoutX="432.0" layoutY="330.0" mnemonicParsing="false" onAction="#launchGame" prefHeight="26.0" prefWidth="133.0" style="-fx-background-color: pink;" text="Lancer la partie" />

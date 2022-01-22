@@ -1,5 +1,10 @@
 #backGroundMenu{
-     -fx-background-image: url("japan.jpg");
-
+     -fx-background-image: url("japan_menu.jpg");
+         -fx-background-repeat: no-repeat;
+         -fx-background-size: 600 400;
+         -fx-background-position: center center;
 }
+
+
+
 

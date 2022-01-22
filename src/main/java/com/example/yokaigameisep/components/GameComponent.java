@@ -231,7 +231,7 @@ public class GameComponent extends GridPane {
 
     public boolean isGameFinished(){
         boolean isFinished = false;
-        if((sideDeck.isEmpty() & sideDeck.getTipPrepared()==null)){
+        if((sideDeck.isEmpty() && sideDeck.getTipPrepared()==null)){
             // may be 0 instead of null gotta check
             isFinished = true;
         }
@@ -242,7 +242,7 @@ public class GameComponent extends GridPane {
     public boolean isGameWon(){
         boolean win_game = false;
         if(board.IsColorInOneBlock()){
-            win_game= true;
+            win_game = true;
         }
         return win_game;
 

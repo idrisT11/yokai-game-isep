@@ -15,7 +15,10 @@ public class Menu {
 
     public void switchToOptions(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(     com.example.yokaigameisep.MainYokai.class.getResource("ChoosePlayer.fxml")      );
+
         Scene scene = new Scene(fxmlLoader.load());
+        scene.getStylesheets().add(com.example.yokaigameisep.MainYokai.class.getResource("non_game_style.css").toExternalForm());
+
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setScene(scene);
         stage.show();

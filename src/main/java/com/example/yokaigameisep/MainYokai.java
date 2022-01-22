@@ -27,11 +27,11 @@ public class MainYokai extends Application {
         //Scene scene = new Scene(fxmlLoader_choose.load());
         //Scene scene = new Scene(g);
 
-        //scene.getStylesheets().add(getClass().getResource("non_game_style.css").toExternalForm());
+        scene.getStylesheets().add(getClass().getResource("non_game_style.css").toExternalForm());
         //AudioClip b = new AudioClip();
 
 
-        stage.setTitle("Hello!");
+        stage.setTitle("Yokai");
         stage.setScene(scene);
         //stage.setResizable(false);
         //stage.setMaximized(true);

@@ -245,6 +245,7 @@ public class GameComponent extends GridPane {
             win_game= true;
         }
         return win_game;
+
     }
 
 }

@@ -424,6 +424,7 @@ public class Board {
         int card_color = getCase(x,y).getColor();
         int nb_of_colors = getCase(x,y).getCardOnTop().getNbColors();
 
+
         if(nb_of_colors == 1){
             if(card_color == getCase(x,y).getCardOnTop().getColorValue1()){
                 tip_equal_card = true;

@@ -1,21 +1,19 @@
 package com.example.yokaigameisep;
 
 
-import com.example.yokaigameisep.components.GameComponent;
-import com.example.yokaigameisep.components.PlateauComponent;
 import javafx.application.Application;
-        import javafx.fxml.FXMLLoader;
-        import javafx.scene.Group;
-        import javafx.scene.Scene;
-import javafx.scene.layout.GridPane;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-        import java.io.IOException;
+import java.io.IOException;
 
 public class MainYokai extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(MainYokai.class.getResource("hello-view.fxml"));
+        FXMLLoader fxmlLoader_menu = new FXMLLoader(MainYokai.class.getResource("Menu.fxml"));
+        FXMLLoader fxmlLoader_choose = new FXMLLoader(MainYokai.class.getResource("ChoosePlayer.fxml"));
         //=========================================
 
 
@@ -24,16 +22,19 @@ public class MainYokai extends Application {
 
 
         //=======================================
-        GridPane g = new GameComponent();
-        Scene scene = new Scene(g );
+        //GridPane g = new GameComponent();
+        Scene scene = new Scene(fxmlLoader_menu.load());
+        //Scene scene = new Scene(fxmlLoader_choose.load());
+        //Scene scene = new Scene(g);
 
-        scene.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
+        //scene.getStylesheets().add(getClass().getResource("non_game_style.css").toExternalForm());
+        //AudioClip b = new AudioClip();
 
 
         stage.setTitle("Hello!");
         stage.setScene(scene);
         //stage.setResizable(false);
-        stage.setMaximized(true);
+        //stage.setMaximized(true);
         stage.show();
     }
 

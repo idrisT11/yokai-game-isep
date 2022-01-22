@@ -5,7 +5,7 @@ import com.example.yokaigameisep.Board;
 import com.example.yokaigameisep.CaseBoard;
 import com.example.yokaigameisep.Constant;
 import com.example.yokaigameisep.TipCard;
-import com.sun.javafx.scene.control.skin.Utils;
+//import com.sun.javafx.scene.control.skin.Utils;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -47,7 +47,7 @@ public class PlateauComponent extends Group {
 
 
     public PlateauComponent(Board board){
-
+        this.setId("boardComponent");
         currentState = Constant.WAITING_TO_TURN;
         firstCardTurned = false;
         secondCardTurned = false;
@@ -64,16 +64,18 @@ public class PlateauComponent extends Group {
 
         ScrollPane scroll = new ScrollPane();
         scroll.setContent(g);
-        scroll.setVbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);
-        scroll.setHbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);
+        //scroll.setVbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);
+        //scroll.setHbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);
 
-        list.add(scroll);
+        list.add(g);
 
     }
 
     public void initPlateau(){
 
         g = new GridPane();
+        g.setId("boardButtonCtn");
+
         g.setVgap(10);
         g.setHgap(10);
 
@@ -209,6 +211,7 @@ public class PlateauComponent extends Group {
         //selectedCase.setColor(selectedColor);
 
     }
+
     private void moveCard(int finalI, int finalJ) {
         CaseBoard selectedCase = board.getCase(selectedCardPos[0], selectedCardPos[1]);
 

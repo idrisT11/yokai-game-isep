@@ -4,12 +4,18 @@ import com.example.yokaigameisep.*;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.HPos;
 import javafx.scene.Group;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 
 import javafx.util.Callback;
 
+import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 
 
 public class GameComponent extends GridPane {
@@ -17,12 +23,25 @@ public class GameComponent extends GridPane {
     private PlateauComponent boardCmp;
     private SideDeckComponent sideCmp;
     private Button goBtn;
+    private Button FinishGameBtn;
+
+    private Label indication;
+    private Label playerTurnLabel;
+    private Label title;
 
     private Board board;
     private SideDeck sideDeck;
 
 
-    public GameComponent(){
+    private ArrayList<String> playerList;
+
+
+    public GameComponent(ArrayList<String> playerName){
+
+        this.setId("gameScreen");
+
+        playerList = new ArrayList<>(playerName);
+
         //Board
         board = new Board();
         board.Initialize_Board();
@@ -30,28 +49,52 @@ public class GameComponent extends GridPane {
         //Side Deck
         sideDeck = new SideDeck();
 
+
+        //Interface
         boardCmp = new PlateauComponent(board);
-        goBtn = new Button("GO");
+        goBtn = new Button("Continuer");
+        FinishGameBtn = new Button("Terminer la partie");
+        indication = new Label("Retourner deux Cartes");
+        playerTurnLabel = new Label(playerList.get(0));
         sideCmp = new SideDeckComponent(sideDeck);
+        title = new Label("Yokai Game");
+
+        styliseInterface();
+
 
         goBtn.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
                 Button n = (Button) e.getSource();
 
-                n.setStyle("-fx-background-color: #AAA");
 
                 if (boardCmp.getCurrentState() == Constant.WAITING_TO_TURN && boardCmp.getFinishedTask() ){
+                    indication.setText("Deplacer une carte");
                     boardCmp.loadMoveState();
                 }
             }
         });
 
+        FinishGameBtn.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+
+            }
+        });
+
+
         boardCmp.newTurnCallback = new Callback<Void, Void>() {
             @Override
             public Void call(Void unused) {
+                indication.setText("Retourner deux Cartes");
+                playerList.add(playerList.remove(0));
+                playerTurnLabel.setText(playerList.get(0));
+
+
 
                 sideCmp.reloadState();
+
+                //WriteObjectToFile(board);
 
                 return null;
             }
@@ -60,7 +103,7 @@ public class GameComponent extends GridPane {
         boardCmp.moveDoneCallback = new Callback<Void, Void>() {
             @Override
             public Void call(Void unused) {
-
+                indication.setText("Retourner/déplacer une TipCard");
                 sideCmp.setInteractAcces(true);
 
                 return null;
@@ -84,17 +127,67 @@ public class GameComponent extends GridPane {
         };
 
         ObservableList list = this.getChildren();
-        this.add(boardCmp, 1, 1);
-        this.add(goBtn, 2, 1);
-        this.add(sideCmp, 3, 1);
+        this.add(title, 1, 1, 1, 1);
+        this.add(indication, 2, 1, 1,1);
+        this.add(playerTurnLabel, 4, 1);
+
+        this.add(boardCmp, 2, 3);
+        this.add(sideCmp, 3, 3);
+
+        this.add(goBtn, 4, 4);
+        this.add(FinishGameBtn, 2, 4);
 
     }
 
+    private void styliseInterface(){
 
 
-    public void selectTipCard(){
-        System.out.println("hallo");
+        title.setId("gameTitle");
+        indication.setId("gameindication");
+        playerTurnLabel.setId("gameplayerTurn");
 
+        this.setHalignment(sideCmp, HPos.RIGHT);
+
+        this.setVgap(5);
+    }
+
+    public void WriteObjectToFile(Object serObj) {
+
+        try {
+
+            File yourFile = new File("yokai.sav");
+            yourFile.createNewFile(); // if file already exists will do nothing
+            FileOutputStream fileOut = new FileOutputStream("yokai.sav");
+            ObjectOutputStream objectOut = new ObjectOutputStream(fileOut);
+            System.out.println("llll");
+
+            objectOut.writeObject(serObj);
+            objectOut.close();
+            System.out.println("The Object  was succesfully written to a file");
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    public Object ReadObjectFromFile(String filepath) {
+
+        try {
+
+
+            FileInputStream fileIn = new FileInputStream(filepath);
+            ObjectInputStream objectIn = new ObjectInputStream(fileIn);
+
+            Object obj = objectIn.readObject();
+
+            System.out.println("The Object has been read from the file");
+            objectIn.close();
+            return obj;
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            return null;
+        }
     }
 
 
@@ -138,7 +231,7 @@ public class GameComponent extends GridPane {
 
     public boolean isGameFinished(){
         boolean isFinished = false;
-        if((sideDeck.isEmpty() & sideDeck.getTipPrepared()==null) || playerpressedbutton){
+        if((sideDeck.isEmpty() & sideDeck.getTipPrepared()==null)){
             // may be 0 instead of null gotta check
             isFinished = true;
         }

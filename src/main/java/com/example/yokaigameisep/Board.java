@@ -330,7 +330,7 @@ public class Board {
         return false;
     }
 
-    public boolean IsColorInOneBlock() {
+    public boolean IsColorInOneBlock() {/*
         boolean red_bool = false;
         boolean green_bool = false;
         boolean blue_bool = false;
@@ -413,13 +413,14 @@ public class Board {
         if(red_bool && green_bool && blue_bool && purple_bool){
             win_condition = true;
         }
-        return win_condition;
+        return win_condition;*/return false;
 
     }
 
     public boolean isTipEqualCard(int x, int y){
         boolean tip_equal_card = false;
         //check if hint is equal to the color of the card
+
         int card_color = getCase(x,y).getColor();
         int nb_of_colors = getCase(x,y).getCardOnTop().getNbColors();
 
@@ -451,7 +452,7 @@ public class Board {
         }
 
 
-    return tip_equal_card;
+        return tip_equal_card;
     }
 
 

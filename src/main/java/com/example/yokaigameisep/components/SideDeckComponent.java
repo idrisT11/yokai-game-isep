@@ -53,6 +53,7 @@ public class SideDeckComponent extends Group {
         numSelectedTipCard = -1;
 
         g = new GridPane();
+        g.setId("sideDeckCTN");
         g.setVgap(10);
         g.setHgap(10);
 

@@ -1,5 +1,81 @@
+#gameScreen{
+     -fx-background-image: url("japan.jpg");
+         -fx-background-repeat: no-repeat;
+         -fx-background-size: 1288 930;
+         -fx-background-position: center center;
+
+     -fx-width: 100%;
+
+     -fx-alignemt: center;
+}
+
+#sideDeckCTN{
+    -fx-padding: 20;
+    -fx-background-color: rgba(255  , 255,  255, 0.4);
+    -fx-border-radius: 10px;
+}
+
+#boardButtonCtn{
+    -fx-padding: 25 25 25 25;
+    -fx-background-color: rgba(255  , 255,  255, 0.4);
+    -fx-border-radius: 10px;
+
+}
+
+Button{
+    -fx-background-color: pink;
 
 
+    -fx-font-size: 24px;
+    -fx-font-family: "Dyuthi Regular";
+
+    -fx-padding: 15px;
+    -fx-border-radius: 10px;
+
+}
+
+#gameTitle{
+
+        -fx-border-radius: 10px;
+
+        -fx-background-color: pink;
+
+        -fx-font-size: 34px;
+        -fx-font-family: "Dyuthi Regular";
+
+        -fx-padding: 7px;
+        -fx-width:100%;
+
+}
+
+#gameindication{
+
+        -fx-border-radius: 10px;
+
+        -fx-background-color: rgba(255, 255, 255, 0.5);
+
+        -fx-font-size: 34px;
+        -fx-font-family: "Dyuthi Regular";
+
+        -fx-padding: 7px;
+        /*-fx-min-width: 900px;
+        -fx-max-width: 900px;*/
+
+}
+
+#gameplayerTurn{
+        -fx-border-radius: 10px;
+
+        -fx-background-color: rgba(255, 255, 255, 0.5);
+
+        -fx-font-size: 34px;
+        -fx-font-family: "Dyuthi Regular";
+
+        -fx-padding: 7px;
+
+
+        -fx-border-left: 2px solid black;
+}
 
 /* =================Card Button======================== */
 /* #################################################### */
@@ -18,8 +94,9 @@ BoardCardButtonComponent{
     -fx-background-size: 50 50;
     -fx-background-position: center center;
 
-    -fx-border-color : #444A;
     -fx-border-radius: 7px;
+
+    -fx-cursor: pointer;
 }
 BoardCardButtonComponent:hover{
     -fx-opacity: 0.8;
@@ -30,6 +107,7 @@ BoardCardButtonComponent:hover{
 }
 #BTN_BOARD_VOID{
     -fx-background-color: white;
+    -fx-opacity: 0.7;
 }
 #BTN_BOARD_BLUE{
     -fx-background-image: url("cartes_individuelles/carte_bleue.png");

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="backGroundMenu" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.yokaigameisep.control.Menu">
+   <children>
+      <Button layoutX="193.0" layoutY="198.0" mnemonicParsing="false" onAction="#switchToOptions" prefHeight="28.0" prefWidth="193.0" style="-fx-background-color: pink;" text="Nouvelle partie">
+         <font>
+            <Font name="KacstArt" size="14.0" />
+         </font></Button>
+      <Button layoutX="194.0" layoutY="276.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="193.0" style="-fx-background-color: pink;" text="Quit" />
+      <Button layoutX="193.0" layoutY="236.0" mnemonicParsing="false" onAction="#switchToLoadGame" prefHeight="28.0" prefWidth="193.0" style="-fx-background-color: pink;" text="Charger une partie" />
+   </children>
+</AnchorPane>

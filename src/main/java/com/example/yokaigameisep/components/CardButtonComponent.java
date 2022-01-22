@@ -4,7 +4,7 @@ package com.example.yokaigameisep.components;
 import com.example.yokaigameisep.Board;
 import com.example.yokaigameisep.CaseBoard;
 import com.example.yokaigameisep.Constant;
-import com.sun.javafx.scene.control.skin.Utils;
+//import com.sun.javafx.scene.control.skin.Utils;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
